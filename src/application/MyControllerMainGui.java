@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 
 public class MyControllerMainGui implements Initializable {
 	private Stage primaryStage;
+	String fileAsString;
 	private boolean emptyField = false;
 	private boolean filepass = false;
 	
@@ -58,7 +59,7 @@ public class MyControllerMainGui implements Initializable {
 		chooser.setTitle("Select Nacha file");
 		File file = chooser.showOpenDialog(primaryStage);
 		if (file != null) {
-			String fileAsString = file.toString();
+			fileAsString = file.toString();
 			labelFieldFilePath.setText(fileAsString);
 		}else {}
 
@@ -100,7 +101,7 @@ public class MyControllerMainGui implements Initializable {
 			NachaScanner nachaScanner = new NachaScanner();
 			
 			try {
-			allRows = nachaScanner.getRows("/home/pc/Desktop/Pet.txt");
+			allRows = nachaScanner.getRows(fileAsString);
 			}finally {
 				
 			}
@@ -178,6 +179,7 @@ public class MyControllerMainGui implements Initializable {
 
 			
 		}
+		System.out.println("End of program");
 			
 		}
 	}

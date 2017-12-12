@@ -35,8 +35,11 @@ public class NachaEagleView {
 				
 				
 				filepass = false;
+				System.out.println(nachafilestringerrors);
 			}
 		}
+		
+		if(!filepass) {
 		
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setTitle("Error");
@@ -44,6 +47,7 @@ public class NachaEagleView {
 		alert.setContentText("Please correct the following lines:"
 				+ nachafilestringerrors);
 		alert.showAndWait();
+		}
 	}
 	
 	public boolean getfilepass() {
